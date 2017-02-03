@@ -47,23 +47,24 @@
             <section>
                 <ul>
                     <h3>Topics for Today:</h3>
-                    <li class="fragment">What is a Microcontroller?</li>
-                    <li class="fragment">Introduction to the Arduino</li>
-                    <li class="fragment">Your First Electronic Circuit</li>
-                    <li class="fragment">Programming the Arduino</li>
-                    <li class="fragment">Digital Output</li>
-                    <li class="fragment">Digital Input</li>
-                    <li class="fragment">Analog Input</li>
-                    <li class="fragment">Analog Output</li>
+                    <li>What is a Microcontroller?</li>
+                    <li>Introduction to the Arduino</li>
+                    <li>Your First Electronic Circuit</li>
+                    <li>Programming the Arduino</li>
+                    <li>Digital Output</li>
+                    <li>Digital Input</li>
+                    <li>Analog Input</li>
+                    <li>Analog Output</li>
+                    <li>Adressable LED's</li>
 
                 </ul>
             </section>
 
             <section>
-                <img src="img/nest.png" height="300">
-                <img src="img/dash.jpg" height="300">
-                <img src="img/twine2.jpg" height="300">
-
+                <img src="img/m1.png" height="200">
+                <img src="img/m2.png" height="200">
+                <img src="img/m3.png" height="200">
+                <img src="img/te.png" height="200">
             </section>
 
             <section>
@@ -74,41 +75,26 @@
             </section>
             <section>
                 <h4>WHAT IS A MICROCONTOLLER:</h4>
-                <p>Most of us know what a computer looks like. It usually has a keyboard, monitor, CPU (Central Processing Unit), printer, and a mouse. These types of computers, like the Mac or PC, are primarily designed to communicate (or “interface”) with
-                    humans.
+                <p>We knwo what a computer looks like. It usually has a keyboard, monitor, CPU (Central Processing Unit), printer, and a mouse. These types of computers, like the Mac or PC, are primarily designed to communicate (or “interface”) with humans.
                 </p>
             </section>
 
             <section>
                 <h4>WHAT IS A MICROCONTOLLER:</h4>
-                <p>There are also little computers all around us, running program and quietly doing calculations, not interacting with humans at all. These computers are in your car, on the Space Shuttle, a small toy, and maybe even inside your hairdryer.</p>
+                <p>There are also small computers all around,quietly running programs and quietly doing calculations. These computers are in your car, on the Space Shuttle, a small toy, and maybe even inside your refrigerator.</p>
             </section>
 
 
             <section>
                 <h4>WHAT IS A MICROCONTOLLER:</h4>
-                <p>We call these devices “microcontrollers”. Micro because they’re small, and controller because they “control” machines, gadgets, whatever !
+                <p>We call these devices “microcontrollers”. Micro because they’re small, and controller because they “control” machines, gadgets, whatever!
                     <br><br> They’re cool because, you can build a machine or device, write programs to control it and then let it work for you automatically. And they are cheap!</p>
             </section>
 
-            <section>
-                <img src="img/m1.png" height="200">
-                <img src="img/m2.png" height="200">
-                <img src="img/m3.png" height="200">
-                <img src="img/te.png" height="200">
-
-            </section>
 
             <section>
-                <h4>WHAT IS A MICROCONTOLLER:</h4>
-                <p>We call these devices “microcontrollers”. Micro because they’re small, and controller because they “control” machines, gadgets, whatever !
-                    <br><br> They’re cool because, you can build a machine or device, write programs to control it and then let it work for you automatically. And they are cheap!</p>
-            </section>
-            <section>
-
                 <h4>ARDUINO!</h4>
                 <img src="img/ard.jpg" height="600">
-
             </section>
             <section>
 
@@ -748,6 +734,10 @@ delay(i); // set delay based on the value of i
                 </ul>
             </section>
             <section>
+                <h2>The Potentiometer</h2>
+                <img src="img/pot.png" height="450">
+            </section>
+            <section>
                 <h3>The Circuit</h3>
                 <img src="img/real.jpg" height="600">
             </section>
@@ -778,9 +768,61 @@ delay(i); // set delay based on the value of i
             <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
                 <h2 class="intro">Upload 'RBG_Pot.ino'</h2>
             </section>
+
             <section>
-                <h2>The Potentiometer</h2>
-                <img src="img/pot.png" height="450">
+                <h3>Introduction to Addressable LEDS</h3>
+                <img src="img/wsring.png" height="200">
+                <img src="img/neostrip.png">
+                <img src="img/ws2811.png">
+            </section>
+            <section>
+                <h3>Basic LEDS Need a lot of Wiring</h3>
+                <img src="img/led.png" height="300">
+            </section>
+            <section>
+                <h3>Addressable LEDs provide circuitry to communicate serially</h3>
+                <img src="img/WS2812_c.jpg" height="300">
+            </section>
+            <section>
+                <h3>Each LED has a chip to receive, decode, drive LED’s and propagate data</h3>
+                <img src="img/rgb-smd-led-with-wit-integrated-ws2812b-chip-type.jpg" height="300">
+            </section>
+            <section>
+                <h3>They are chainable, fairly cheap and have their own resistors etc..</h3>
+                <img src="img/wall.jpg" height="400">
+                <h3>You can drive 10000's from 1 microcontroller</h3>
+            </section>
+            <section>
+                <p>Adafruit has branded these Neopixels</p>
+                <img src="img/ada.png">
+            </section>
+            <section>
+                <p>You can get them for half the price on Ebay as ws2812's</p>
+                <img src="img/ebay.png">
+            </section>
+            <section>
+                <h4>These have a 5v, GND and DIN pin</h4>
+                <img src="img/ring_pins.jpeg" height="400">
+                <h4>Connect 5v to 5v, GND to GND and DIN to Pin6</h4>
+            </section>
+            <section>
+                <p>Import the NeoPixel Library</p>
+                <img src="img/import_library.png">
+            </section>
+            <section>
+                <p>Import the NeoPixel Library</p>
+                <img src="img/neolib.png">
+            </section>
+            <section>
+                <p>Let's try some examples and write our own code!</p>
+            </section>
+            <section>
+                <p>FastLED</p>
+                <a href="http://fastled.io/">Fast LED Library</a>
+            </section>
+            <section>
+                <p>APA102</p>
+                <a href="https://cpldcpu.wordpress.com/2014/08/27/apa102/">APA102 aka “Superled”</a>
             </section>
 
 
