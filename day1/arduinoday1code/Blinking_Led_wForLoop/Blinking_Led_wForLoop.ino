@@ -17,4 +17,10 @@ void loop()
   digitalWrite(LED, LOW);    // turns the LED off
   delay(i);               // waits for a second
   }
+  for(int i = 100;i >=1; i--){
+  digitalWrite(LED, HIGH);   // turns the LED on
+  delay(i);               // waits for a second
+  digitalWrite(LED, LOW);    // turns the LED off
+  delay(i);               // waits for a second
+  }
 }

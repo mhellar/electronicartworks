@@ -9,7 +9,7 @@
  * @hardware: David Cuartielles, Aaron Hallborg
  */
 
-int pinArray[] = {2, 3, 4, 5, 6};
+int pinArray[] = {2, 3, 4, 5, 6, 7};
 int count = 0;
 int timer = 100;
 
