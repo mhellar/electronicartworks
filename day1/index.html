@@ -704,11 +704,15 @@ delay(i); // set delay based on the value of i
                 <img src="img/digiin6.png" height="600">
             </section>
             <section>
-                <img src="img/pwm1.png" height="400">
+                Pulse Width Modulation, or PWM, is a technique for getting analog results with digital means. Digital control is used to create a square wave, a signal switched between on and off. This on-off pattern can simulate voltages in between full on (5 Volts)
+                and off (0 Volts) by changing the portion of the time the signal spends on versus the time that the signal spends off. The duration of "on time" is called the pulse width.
             </section>
             <section>
-                <img src="img/pwm.png" height="600">
+                In the graphic below, the green lines represent a regular time period. This duration or period is the inverse of the PWM frequency. In other words, with Arduino's PWM frequency at about 500Hz, the green lines would measure 2 milliseconds each. A call
+                to analogWrite() is on a scale of 0 - 255, such that analogWrite(255) requests a 100% duty cycle (always on), and analogWrite(127) is a 50% duty cycle (on half the time) for example.
+                <br><img src="img/pwm2.png">
             </section>
+
             </section>
 
 
@@ -766,6 +770,151 @@ delay(i); // set delay based on the value of i
             <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
                 <h2 class="intro">Upload 'RBG_Pot.ino'</h2>
             </section>
+            <section>
+                How do we know the value of the potentiometer?
+                <img src="img/serRead.png" height="500">
+                <a href="#" class="navigate-down">
+                </a>
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <h2 class="intro">Upload 'RBG_Pot_Serial.ino'</h2>
+            </section>
+            <section>
+                <code>
+                <pre>
+int LEDGreen=9;
+int LEDBlue=10;
+int LEDRed=11;
+
+int sensorPin=0;
+int val;
+
+
+void setup(){
+  Serial.begin(9600);
+}
+
+void loop(){
+  
+  val=analogRead(sensorPin);
+  
+  Serial.print("sensor = " );
+  Serial.println(val);
+
+  if (val<340) {
+    analogWrite(LEDRed,255);
+    analogWrite(LEDBlue,0); 
+    analogWrite(LEDGreen,0);    
+  } else if (val<680) {
+    analogWrite(LEDRed,0);
+    analogWrite(LEDBlue,255); 
+    analogWrite(LEDGreen,0); 
+  } else if (val<1024) {
+    analogWrite(LEDRed,0);
+    analogWrite(LEDBlue,0); 
+    analogWrite(LEDGreen,255);  
+  }
+  delay(10);
+}
+                
+            </code>
+                </pre>
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <h2 class="intro">Upload 'SerialMath.ino'</h2>
+            </section>
+            <section>
+                <code>
+                <pre>
+int a = 5;
+int b = 10;
+int c = 20;
+
+void setup()                    // run once, when the sketch starts
+{
+  Serial.begin(9600);           // set up Serial library at 9600 bps
+
+  Serial.println("Here is some math: ");
+
+  Serial.print("a = ");
+  Serial.println(a);
+  Serial.print("b = ");
+  Serial.println(b);
+  Serial.print("c = ");
+  Serial.println(c);
+
+  Serial.print("a + b = ");       // add
+  Serial.println(a + b);
+
+  Serial.print("a * c = ");       // multiply
+  Serial.println(a * c);
+  
+  Serial.print("c / b = ");       // divide
+  Serial.println(c / b);
+  
+  Serial.print("b - c = ");       // subtract
+  Serial.println(b - c);
+}
+
+void loop()                     // we need this to be here even though its empty
+{
+}
+                
+            </code>
+                </pre>
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <h3 class="intro">WE can send Serial data as well</h3><br>
+                <h2 class="intro">Upload PhysicalPixel.ino</h2>
+            </section>
+            <section>
+                <code>
+<pre>
+
+
+const int redPin = 9; // the pin that the LED is attached to
+const int bluePin = 10; // the pin that the LED is attached to
+const int greenPin = 11; // the pin that the LED is attached to
+int incomingByte;      // a variable to read incoming serial data into
+
+void setup() {
+  // initialize serial communication:
+  Serial.begin(9600);
+  // initialize the LED pin as an output:
+  pinMode(redPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+}
+
+void loop() {
+  // see if there's incoming serial data:
+  if (Serial.available() > 0) {
+    // read the oldest byte in the serial buffer:
+    incomingByte = Serial.read();
+    // if it's a r , turn on the red LED:
+    if (incomingByte == 'r') {
+      digitalWrite(greenPin, LOW);
+      digitalWrite(bluePin, LOW);
+      digitalWrite(redPin, HIGH);
+    }
+    // if it's a g , turn on the green LED:
+    if (incomingByte == 'g') {
+      digitalWrite(greenPin, HIGH);
+      digitalWrite(bluePin, LOW);
+      digitalWrite(redPin, LOW);
+    }
+    / if it's a b , turn on the blue LED:
+    if (incomingByte == 'b') {
+      digitalWrite(greenPin, LOW);
+      digitalWrite(bluePin, HIGH);
+      digitalWrite(redPin, LOW);
+    }
+  }
+}
+</code>
+                </pre>
+
+            </section>
 
             <section>
                 <h3>Introduction to Addressable LEDS</h3>
@@ -822,12 +971,9 @@ delay(i); // set delay based on the value of i
                 <p>APA102</p>
                 <a href="https://cpldcpu.wordpress.com/2014/08/27/apa102/">APA102 aka “Superled”</a>
             </section>
-
-
-
-
-
-
+            <section>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/f95i88OSWB4" frameborder="0" allowfullscreen></iframe>
+            </section>
 
 
 
